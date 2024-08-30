@@ -31,13 +31,17 @@ fn main() {
             Ordering::Less => {
                 println!("too Small!");
                 remaining_attempts-=1;
-                min_num = guess;
+                if min_num < guess {
+                    min_num = guess;
+                }
                 println!("{} < secret_number < {}\n", min_num, max_num);
             },
             Ordering::Greater =>{
                 println!("too Big!\n");
                 remaining_attempts-=1;
-                max_num = guess;
+                if max_num > guess {
+                    max_num = guess;
+                }
                 println!("{} < secret_number < {}\n", min_num, max_num);
             }, 
             Ordering::Equal => {
